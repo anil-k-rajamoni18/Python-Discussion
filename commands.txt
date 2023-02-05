@@ -1,3 +1,6 @@
-git -b vaishnavi-python --single-branchhttps://github.com/anil-k-rajamoni18/Python-Discussion.git  
+git clone -b vaishnavi-python --single-branch https://github.com/anil-k-rajamoni18/Python-Discussion.git  
 
 https://github.com/anil-k-rajamoni18/Python-Discussion.git
+
+git config --global user.email "peddintivaishu@gmail.com"
+  git config --global user.name "Vaishnavipeddinti"
