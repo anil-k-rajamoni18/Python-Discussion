@@ -1,0 +1,12 @@
+(todo-env) C:\Users\16478\Desktop\PythonTraining\MyPython\LearnPython\Flask-Tutorial\todo-project>flask --app app run
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: While importing 'app', an ImportError was raised:
+
+Traceback (most recent call last):
+  File "C:\Users\16478\Desktop\PythonTraining\MyPython\LearnPython\Flask-Tutorial\todo-project\todo-env\Lib\site-packages\flask\cli.py", line 218, in locate_app
+    __import__(module_name)
+  File "C:\Users\16478\Desktop\PythonTraining\MyPython\LearnPython\Flask-Tutorial\todo-project\app.py", line 2, in <module>
+    from flask_wtf import FlaskForm
+ModuleNotFoundError: No module named 'flask_wtf'
