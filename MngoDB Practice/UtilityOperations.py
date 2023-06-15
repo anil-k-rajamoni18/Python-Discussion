@@ -1,10 +1,9 @@
 
 from DBUtility import MongoDBConnection
 import datetime
-collobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost', 27017,'localhost').create_connection()
+collobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost:27017/', 27017,'localhost').create_connection()
 
 print(collobj)
-
 #CRUD Operation
 
 def insert_todo(**kwargs):
@@ -42,7 +41,7 @@ def find_todo(id=None,title=None,cardColor =None):
 def delete_todo(id):
     if collobj is not None:
         try:
-            result = collobj._delete({"id": id})
+            result = collobj.delete_one({"id": id})
             if result.deleted_count > 0:
                 print("Delete successful.")
             else:
@@ -52,14 +51,8 @@ def delete_todo(id):
 
 
 
-def update_todo(todo_id,updated_data):
-    todo_id = int(input("Enter id: "))
-    updated_data = {"title": input(), "cardColor": input()} 
-
-    updated_document = update_todo(todo_id, updated_data)
-    if updated_document:
-        print("Updated Document:")
-        print(updated_document)
+def update_todo(todo_id):
+    updated_data = {"title": input('enter updated title name: '), "cardColor": input('enter updated cardColor: ')} 
     if collobj is not None:
         try:
            result = collobj.update_one({"id":todo_id},{'$set': updated_data})
@@ -81,13 +74,15 @@ def update_todo(todo_id,updated_data):
 def main():
     while True:
         print("*"*30)
-        print("""   1.Insertion 
+        print("""
+                    1.Insertion 
                     2.Find
                     3.Find on id
                     4.Find on title
                     5.Update on id
                     6.Delete on id
-                    -1.Exit   """)
+                    -1.Exit   
+            """)
         print("*"*30)
         choice =  int(input("Enter the choice: "))
         if choice == 1:
@@ -113,7 +108,7 @@ def main():
         
         elif choice == 5:
             id = int(input("Enter id: "))
-            update_todo(id = id )
+            update_todo(todo_id = id )
             
 
         elif choice == 6:

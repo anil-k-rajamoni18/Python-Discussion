@@ -7,7 +7,7 @@ class MongoDBConnection:
         self.__port = port
         self.__host = hostName
         self.__user_name = userName
-        self.Password = passwd
+        self.password = passwd
         self.__dbURL = dburl
         self.mydb = None
         self.mycoll = None
@@ -27,18 +27,18 @@ class MongoDBConnection:
                     print(f'connection successfull : {self.__dbName} : {self.__collName}')
                     return self.mycoll
                 else:
-                    raise Exception("collection not found{e}")
+                    raise Exception("collection not found")
             else:
-                raise Exception("Database not found{e}")
+                raise Exception("Database not found ")
 
         except Exception as e:
             print(f'exception occured while making connection{e}')
             
-dbobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost', 27017,'localhost')
+# dbobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost', 27017,'localhost')
 
-print(dbobj)
+# print(dbobj)
 
-coll = dbobj.create_connection()
+# coll = dbobj.create_connection()
 
-print(coll)
+# print(coll)
 
