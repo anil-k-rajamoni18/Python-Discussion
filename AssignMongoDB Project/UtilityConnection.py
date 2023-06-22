@@ -17,7 +17,7 @@ def insert_todo(**kwargs):
 
 
 
-def find_todo(id=None,title=None,cardColor=None):
+def find_todo(id=None,title=None,cardcolor=None):
     if collObj is not None:
         try:
             if id is not None:
@@ -41,7 +41,8 @@ def find_todo(id=None,title=None,cardColor=None):
 def delete_todo(id):
     if collObj is not None:
         try:
-            collObj.delete_one({"_id" : id,})
+            result=collObj.delete_one({"_id" : id,})
+            print(result)
             print("Record deleted")
         except Exception as e:
             print("not deleted sucessfully",e)
@@ -51,7 +52,8 @@ def delete_todo(id):
 def update_todo(id):
     if collObj is not None:
         try:
-            collObj.delete_one({"_id" : id,},{'$set':{"title":input()}})
+            res=collObj.delete_one({"_id" : id,},{'$set':{"title":input(),"cardcolor":input()}})
+            print(res)
             print("Record updated")
         except Exception as e:
             print("not updated sucessfully",e)
@@ -73,9 +75,29 @@ def main():
             isCompleted = input('Is task Completed? true / false: ')
             isCompleted = True if isCompleted == 'true' else False
             insert_todo(id = id , title = title , cardColor = cardColor, isCompleted = isCompleted)
+        
         elif choice ==2:
-            find_todo()
-
+            id=int(input())  
+            title=input()  
+            cardcolor=input()
+            find_todo(id=id,title=title,cardcolor=cardcolor)
+        
+        elif choice ==3:
+            id=int(input())    
+            find_todo(id=id)
+       
+        elif choice ==4:
+            title=input()
+            find_todo(title=title)
+       
+        elif choice ==5:
+           id=int(input())  
+           update_todo(id=id)    
+       
+        elif choice ==6:
+            id=int(input()) 
+            delete_todo(id=id)
+       
         elif choice == -1:
             break
 
