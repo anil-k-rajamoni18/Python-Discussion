@@ -1,6 +1,6 @@
 from DBUtility import MongoDBConnection
 import datetime
-collObj = MongoDBConnection('ProjectDB','todolist_coll','mongodb://localhost:27017/').create_connection()
+collObj = MongoDBConnection('ProjectDB','todolist_coll','mongodb://localhost:27017/').create_connection() #use atlas url
 print(collObj)
 
 
@@ -48,7 +48,6 @@ def delete_todo(id):
             print("not deleted sucessfully",e)
     
         
-
 def update_todo(id):
     if collObj is not None:
         try:
@@ -60,7 +59,6 @@ def update_todo(id):
     
 
     
-
 
 def main():
     while True:
@@ -77,25 +75,22 @@ def main():
             insert_todo(id = id , title = title , cardColor = cardColor, isCompleted = isCompleted)
         
         elif choice ==2:
-            id=int(input())  
-            title=input()  
-            cardcolor=input()
-            find_todo(id=id,title=title,cardcolor=cardcolor)
+            find_todo()
         
         elif choice ==3:
-            id=int(input())    
+            id=int(input('enter the id: '))    
             find_todo(id=id)
        
         elif choice ==4:
-            title=input()
+            title=input('enter title: ')
             find_todo(title=title)
        
         elif choice ==5:
-           id=int(input())  
+           id=int(input('enter id to update: '))  
            update_todo(id=id)    
        
         elif choice ==6:
-            id=int(input()) 
+            id=int(input('enter id to delete: ')) 
             delete_todo(id=id)
        
         elif choice == -1:
