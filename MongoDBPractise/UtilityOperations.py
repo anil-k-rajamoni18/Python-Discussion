@@ -1,11 +1,12 @@
 
 from DBUtility import MongoDBConnection
 import datetime
-collobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost:27017/', 27017,'localhost').create_connection()
+
+collobj = MongoDBConnection('studentData','studentCollection','mongodb://localhost:27017/').create_connection()
 
 print(collobj)
-#CRUD Operation
 
+#CRUD Operation
 def insert_todo(**kwargs):
     if collobj is not None:
         data=kwargs

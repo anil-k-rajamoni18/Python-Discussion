@@ -1,7 +1,7 @@
 import pymongo
 
 class MongoDBConnection:
-    def __init__(self,dbName , collName , dburl , port , hostName , userName = None , passwd= None):
+    def __init__(self,dbName , collName , dburl , port=None , hostName=None , userName = None , passwd= None):
         self.__dbName = dbName
         self.__collName = collName
         self.__port = port
