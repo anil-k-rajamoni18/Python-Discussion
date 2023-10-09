@@ -1,3 +1,4 @@
 a = 10
 b = 2
-print("Addition = ", a+b)
+c = 30
+print("Addition of 3 nums= ", a+b+c)
